@@ -156,23 +156,34 @@ const MyComponent = {
 }
 ```
 beforeCreate -> use setup()
+
 created -> use setup()
+
 beforeMount -> onBeforeMount
+
 mounted -> onMounted
+
 beforeUpdate -> onBeforeUpdate
+
 updated -> onUpdated
+
 beforeDestroy -> onBeforeUnmount
+
 destroyed -> onUnmounted
+
 errorCaptured -> onErrorCaptured
 
-new hooks
+#### new hooks
 
 onRenderTracked
+
 onRenderTriggered
 
 ### 自定义hooks
 use 开头 的 hooks 文件
+
 示例 provide inject 的简写
+
 ```
 import { inject, provide } from "vue";
 const store = Symbol()
