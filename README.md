@@ -215,3 +215,6 @@ createApp(App).use(router).mount('#app')
 ```
 ### 使用axios
 
+### 使用vuex
+
+
