@@ -79,6 +79,31 @@ const index = ref(0)
 console.log(index.value)
 index.value++
 ```
+如果在template 中 有一个
+```
+<div ref="second">222</div>
+```
+在setup中可以把div读出来
+```
+setup(){
+       
+        const second = ref()
+
+        onMounted(()=>{
+            console.log(second.value) // div
+        })
+        //unref
+        //isRef
+        //shallowRef
+        // readonly 
+        return {
+            root,second
+        }
+    }
+    
+```
+
+ 还有readonly unref isRef shallowRef shallowReadonly 等api
 
 ### watch 
   在setup 中 watchEffect  watch
@@ -111,4 +136,55 @@ setup(){
             data,addMessage
         }
     }
+```
+
+### lifecycle
+
+```
+const MyComponent = {
+  setup() {
+    onMounted(() => {
+      console.log('mounted!')
+    })
+    onUpdated(() => {
+      console.log('updated!')
+    })
+    onUnmounted(() => {
+      console.log('unmounted!')
+    })
+  }
+}
+```
+beforeCreate -> use setup()
+created -> use setup()
+beforeMount -> onBeforeMount
+mounted -> onMounted
+beforeUpdate -> onBeforeUpdate
+updated -> onUpdated
+beforeDestroy -> onBeforeUnmount
+destroyed -> onUnmounted
+errorCaptured -> onErrorCaptured
+
+new hooks
+
+onRenderTracked
+onRenderTriggered
+
+### 自定义hooks
+use 开头 的 hooks 文件
+示例 provide inject 的简写
+```
+import { inject, provide } from "vue";
+const store = Symbol()
+export default function useStore(defaultStore = {}) {
+    return inject(store,defaultStore)
+}
+export function provideStore(value){
+    provide(store,value)
+}
+```
+### vue-router 的使用
+
+``` 
+yarn add vue-router@next
 ```
