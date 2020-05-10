@@ -7,6 +7,7 @@
     <button @click="add">add hooks</button>
     <br>
     <parent />
+    <router-view />
   </div>
 </template>
 
